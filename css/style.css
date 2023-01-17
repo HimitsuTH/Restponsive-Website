@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Raleway', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===================THEME============== */
+:root {
+    --white: #fff;
+    --black: #222;
+    --blue: #B0DBF1;
+    --dark-blue: #02055A;
+    --nav-color: #363e5a71;
+}
+
+/* ==========SCROLLBAR============== */
+::-webkit-scrollbar{
+    background: #eee;
+    width: 10px;
+   
+}
+::-webkit-scrollbar-thumb{
+    background: #253DA1;
+     border-radius: 5px;
+}
+
+
+
+/* ===========BODY============= */
+body {
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+}
+
+section {
+    height: 100vh;
+    position: relative;
+    background:var(--dark-blue);
+}
+
+
+/* ==========NAV MENU============== */
+nav {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    height: 12vh;
+    width: 100vw;
+    transition: 0.4s;
+    z-index: 998;
+}
+
+nav.active{
+
+    /* background: var(--nav-color); */
+    /* position: sticky; */
+    height: 11vh;
+}
+
+
+
+nav .container {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+
+nav .container ul {
+    position: fixed;
+    top: 50%;
+    height: 300px;
+    right: -100%;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    transform: translateY(-50%);
+    padding: 20px;
+    transition: 0.4s cubic-bezier(0.32, 1.09, 0.84, 1.15);
+   
+   
+}
+
+nav .container ul.active {
+    right: 0;
+}
+nav .container ul .items {
+    padding: 0 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #02198B;
+    
+}
+nav .container ul .items a{
+    padding:10px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--blue);
+    font-weight: 600;
+}
+nav .container ul .items a .fas{
+    font-size: 1rem;
+}
+
+nav .container ul .items.active {
+    background: var(--blue);
+}
+nav .container ul .items.active a {
+    color: var(--black);
+}
+
+
+
+
+
+/* ==========LOGO============= */
+
+.logo {
+    font-size: 2rem ;
+    text-transform: uppercase;
+    user-select: none;  
+}
+.logo a {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.479);
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    
+
+}
+
+.logo a span {
+    color: var(--blue);
+}
+
+
+
+/* ===============OPEN-CLOSE MENU============ */
+
+.menu_burger {
+    padding: 12px 5px;
+    
+    cursor: pointer;
+}
+.menu-btn {
+    display: block;
+    height: 2px;
+    width: 25px;
+    background: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    transition: all .3s ease-in-out;
+    z-index: 100;
+    
+}
+
+.menu-btn::before,
+.menu-btn::after {
+    content: '';
+    position:absolute;
+    height: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    width: 25px;
+    background: var(--white);
+    border-radius: 5px;
+    z-index: 100;
+    transition: all .3s ease-in-out;
+    
+}
+
+.menu-btn::before {
+   transform: translateY(-5px);
+}
+.menu-btn::after {
+     transform: translateY(5px);
+}
+
+.menu_burger.open .menu-btn {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+    
+}
+
+.menu_burger.open .menu-btn::before {
+    transform: rotate(45deg) translate(35px ,-35px);
+}
+.menu_burger.open .menu-btn::after {
+    transform: rotate(-45deg) translate(35px ,35px);
+}
+
+
+
+
+
+
+
+@media (max-width: 768px){
+    nav .container ul .items{
+        border-radius: 50%;
+        height: 38px;
+        width: 38px;
+    }
+    nav .container ul .items a span {
+        display: none;
+    }
+
+    
+    .logo {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 468px){
+    .logo {
+        font-size: 1.2rem;
+    }
+  
+
+}
+    
